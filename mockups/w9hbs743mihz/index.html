@@ -195,12 +195,22 @@ select:focus, input:focus, textarea:focus { border-color: var(--accent); outline
 @media (prefers-reduced-motion: no-preference) {
   .btn, .choice span, .quick button { transition: border-color .15s, background-color .15s, filter .15s; }
 }
+/* theme: noyar */
+:root { --bg: #f1f3f6; --surface: #ffffff; --fg: #16202e; --muted: #56627a; --line: #d2d8e2; --accent: #ff8a1f; --accent-fg: #1a1206; --asphalt: #162a4a; --asphalt-fg: #f2f5fa; --r: 8px; --font-head: Georgia, "Times New Roman", "PT Serif", serif }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0e1522; --surface: #17213a; --fg: #e8edf5; --muted: #9aa7bf; --line: #2a3756; --accent: #ff9a3c; --accent-fg: #1a1206; --asphalt: #0a1324; --asphalt-fg: #e8edf5; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #0e1522; --surface: #17213a; --fg: #e8edf5; --muted: #9aa7bf; --line: #2a3756; --accent: #ff9a3c; --accent-fg: #1a1206; --asphalt: #0a1324; --asphalt-fg: #e8edf5; color-scheme: dark }
+
+h1, h2 { font-weight: 700; letter-spacing: -0.01em; }
+.btn, .btn-back, .quick button, select, input[type="date"], input[type="text"], input[type="tel"], textarea, .choice span, .mini-price { border-radius: 6px; }
+.review { border-left: 0; border-bottom: 3px solid var(--accent); }
+.tread { width: 100%; right: 0; opacity: 0.1;
+  background: linear-gradient(var(--asphalt-fg) 1px, transparent 1px) 0 0 / 28px 28px, linear-gradient(90deg, var(--asphalt-fg) 1px, transparent 1px) 0 0 / 28px 28px; }
+@media (min-width: 760px) { .tread { width: 100%; right: 0; } }
 </style>
 </head>
 <body>
 
 <header class="top">
-  <div class="mock-banner"><span>Макет для Но-Яр Сервис — не для публикации</span></div>
   <div class="wrap bar">
     <button type="button" class="btn-back" id="backBtn" hidden>← Назад</button>
     <div class="brand">Но-Яр Сервис · автосервис, шиномонтаж</div>

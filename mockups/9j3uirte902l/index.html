@@ -195,12 +195,23 @@ select:focus, input:focus, textarea:focus { border-color: var(--accent); outline
 @media (prefers-reduced-motion: no-preference) {
   .btn, .choice span, .quick button { transition: border-color .15s, background-color .15s, filter .15s; }
 }
+/* theme: vlg */
+:root { --bg: #ecebea; --surface: #ffffff; --fg: #1a1a1a; --muted: #5c5a58; --line: #cfccc9; --accent: #e03127; --accent-fg: #ffffff; --asphalt: #1c1c1c; --asphalt-fg: #f4f2f0; --r: 3px; --font-head: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #121212; --surface: #1d1d1d; --fg: #efedeb; --muted: #a6a29e; --line: #353332; --accent: #ff4a3d; --accent-fg: #ffffff; --asphalt: #0a0a0a; --asphalt-fg: #efedeb; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #121212; --surface: #1d1d1d; --fg: #efedeb; --muted: #a6a29e; --line: #353332; --accent: #ff4a3d; --accent-fg: #ffffff; --asphalt: #0a0a0a; --asphalt-fg: #efedeb; color-scheme: dark }
+
+h1, h2, h3, .brand { text-transform: uppercase; letter-spacing: 0; font-weight: 900; }
+h3 { font-family: var(--font-text); font-weight: 800; letter-spacing: 0.01em; font-size: 1rem; }
+.btn { text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem; }
+.btn, .btn-back, .quick button, select, input[type="date"], input[type="text"], input[type="tel"], textarea, .choice span, .mini-price { border-radius: 3px; }
+.top { border-bottom: 4px solid var(--accent); }
+.tread { width: 160px; opacity: 0.5; background: repeating-linear-gradient(160deg, var(--accent) 0 12px, transparent 12px 26px); }
+@media (min-width: 760px) { .tread { width: 300px; } }
 </style>
 </head>
 <body>
 
 <header class="top">
-  <div class="mock-banner"><span>Макет для ShinomontajVlg — не для публикации</span></div>
   <div class="wrap bar">
     <button type="button" class="btn-back" id="backBtn" hidden>← Назад</button>
     <div class="brand">ShinomontajVlg · шиномонтажная мастерская</div>

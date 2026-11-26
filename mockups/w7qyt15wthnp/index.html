@@ -195,12 +195,22 @@ select:focus, input:focus, textarea:focus { border-color: var(--accent); outline
 @media (prefers-reduced-motion: no-preference) {
   .btn, .choice span, .quick button { transition: border-color .15s, background-color .15s, filter .15s; }
 }
+/* theme: radius */
+:root { --bg: #eef5f6; --surface: #ffffff; --fg: #12292e; --muted: #4f6a70; --line: #cfe0e3; --accent: #2fc0c8; --accent-fg: #062a2e; --asphalt: #0f3440; --asphalt-fg: #eefbfc; --r: 22px; --font-head: "SF Pro Rounded", ui-rounded, "Nunito", "Varela Round", system-ui, sans-serif }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0b1d22; --surface: #12292f; --fg: #e4f2f4; --muted: #93b0b6; --line: #21414a; --accent: #3fd0d8; --accent-fg: #062a2e; --asphalt: #071419; --asphalt-fg: #e4f2f4; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #0b1d22; --surface: #12292f; --fg: #e4f2f4; --muted: #93b0b6; --line: #21414a; --accent: #3fd0d8; --accent-fg: #062a2e; --asphalt: #071419; --asphalt-fg: #e4f2f4; color-scheme: dark }
+
+.btn, .btn-back, .quick button { border-radius: 999px; }
+select, input[type="date"], input[type="text"], input[type="tel"], textarea, .choice span, .mini-price { border-radius: 16px; }
+.review { border-left: 0; border-top: 4px solid var(--accent); }
+.tread { width: 340px; right: -170px; opacity: 0.22; border-radius: 50%;
+  background: repeating-radial-gradient(circle, var(--accent) 0 3px, transparent 3px 22px); }
+@media (min-width: 760px) { .tread { width: 520px; right: -200px; top: -60px; bottom: -60px; } }
 </style>
 </head>
 <body>
 
 <header class="top">
-  <div class="mock-banner"><span>Макет для Радиус — не для публикации</span></div>
   <div class="wrap bar">
     <button type="button" class="btn-back" id="backBtn" hidden>← Назад</button>
     <div class="brand">Радиус · шиномонтажная мастерская</div>
