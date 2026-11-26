@@ -2,761 +2,212 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Но-Яр Сервис — макет</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<title>«Но-Яр Сервис» — автосервис и шиномонтаж на Качалова, 39а, Волгоград</title>
+<meta name="description" content="«Но-Яр Сервис»: шиномонтаж, замена масла, ремонт и диагностика. Волгоград, ул. Качалова, 39а. Пн–пт 08:30–20:00, в субботу по предварительной записи.">
 <style>
-/* Layout: one column for phones, cards in two or three columns from 760px; screens switch by #hash. */
-:root {
-  --bg: #eef0f2;
-  --surface: #ffffff;
-  --fg: #1d2328;
-  --muted: #5b6670;
-  --line: #d3d8dd;
-  --accent: #f5b800;      /* road-marking yellow */
-  --accent-fg: #1d2328;
-  --asphalt: #2a3138;
-  --asphalt-fg: #f3f5f6;
-  --stub-bg: #fff3c4;
-  --stub-fg: #6b4e00;
-  --danger: #b3261e;
-  --ok: #1e7a3c;
-  --font-text: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-head: "Arial Narrow", "Roboto Condensed", "Helvetica Neue", system-ui, sans-serif;
-  --r: 12px;
-  color-scheme: light;
+:root{--navy:#1e2738;--yellow:#f4dc3c;--red:#d62a20;--paper:#fff;--soft:#f6f4ea;--mute:#575c66}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--navy);font:16px/1.6 Verdana,Tahoma,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit}
+h1,h2{font-family:Arial,"Helvetica Neue",sans-serif;font-weight:900;line-height:1.12;margin:0 0 .5em}
+h1{font-size:clamp(28px,7vw,42px)}
+h2{font-size:clamp(23px,5.5vw,30px)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.z{background:#fff1a8;color:#5a4500;border:1px dashed #c9a400;padding:0 4px;font-weight:600}
+.bar{background:#000;color:#ffe45c;text-align:center;font:700 13px Arial,sans-serif;padding:6px 12px}
+
+header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:10}
+header .wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+.sign{font:900 20px/1 Arial,sans-serif;text-decoration:none;margin-right:auto;letter-spacing:.02em}
+.sign span{color:var(--yellow)}
+.wa{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 14px;background:#25d366;color:#fff;font:700 15px Arial,sans-serif;text-decoration:none;border-radius:8px}
+.wa svg{width:20px;height:20px}
+.menu-btn{display:none;min-height:48px;min-width:48px;border:2px solid #fff;border-radius:8px;background:none;color:#fff;font:700 14px Arial,sans-serif;cursor:pointer}
+nav{width:100%}
+nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:0 18px}
+nav a{display:inline-flex;align-items:center;min-height:48px;text-decoration:none;font:700 14px Arial,sans-serif}
+nav a:hover{color:var(--yellow)}
+.js .menu-btn{display:inline-block}
+.js nav{display:none}
+.js nav.open{display:block}
+
+.book{background:var(--yellow);padding:26px 0 34px}
+.book .lead{font-size:17px;margin:0 0 18px}
+table.hours{border-collapse:collapse;width:100%;max-width:460px;background:var(--paper);border:3px solid var(--navy);margin:0 0 18px}
+.hours th,.hours td{text-align:left;padding:11px 12px;border-bottom:1px solid #d9d4b5;font:700 16px Arial,sans-serif}
+.hours td{text-align:right}
+.hours tr.sat{background:var(--navy);color:#fff}
+.hours tr.sat td{color:var(--yellow)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 20px;border-radius:8px;font:700 16px Arial,sans-serif;text-decoration:none;border:3px solid var(--navy);cursor:pointer}
+.btn.wab{background:#25d366;border-color:#25d366;color:#fff}
+.btn.nv{background:var(--navy);color:#fff}
+.btn.ol{background:none;color:var(--navy)}
+.btn svg{width:22px;height:22px}
+.acts{display:flex;flex-wrap:wrap;gap:10px}
+
+.card{background:var(--paper);border:3px solid var(--navy);border-radius:10px;padding:18px 16px;margin-top:24px}
+.card h2{font-size:22px}
+form{display:grid;gap:13px}
+label{display:grid;gap:6px;font:700 15px Arial,sans-serif}
+input,select{width:100%;min-height:52px;padding:10px 12px;border:2px solid #9aa0aa;border-radius:8px;font:16px Verdana,Arial,sans-serif;background:#fff;color:var(--navy)}
+input:focus,select:focus,a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.hint{font-size:14px;color:var(--mute);margin:0}
+.ok{display:none;margin:14px 0 0;padding:14px;background:var(--navy);color:var(--yellow);font:700 16px Arial,sans-serif;border-radius:8px}
+.ok:target{display:block}
+
+section{padding:40px 0}
+.list{list-style:none;margin:0;padding:0;border-top:3px solid var(--navy)}
+.list li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid #ddd}
+.list b{font:700 18px Arial,sans-serif}
+.list .tm{color:var(--red);font-weight:900;text-transform:uppercase}
+.list .p{white-space:nowrap;font-weight:700}
+
+.master{background:var(--navy);color:#fff}
+.master blockquote{margin:0 0 18px;font-size:18px;border-left:5px solid var(--yellow);padding-left:14px}
+.master footer{font-size:14px;color:#c5cad3;margin-top:6px}
+.rating{display:inline-block;background:var(--yellow);color:var(--navy);font:900 15px Arial,sans-serif;padding:6px 10px;border-radius:6px;margin-bottom:16px}
+
+.photo{min-height:220px;background:var(--soft);border:2px dashed #b9b29a;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center}
+.where{background:var(--soft)}
+.where dl{margin:0 0 18px;display:grid;gap:12px}
+.where dt{font:700 13px Arial,sans-serif;text-transform:uppercase;color:var(--mute);letter-spacing:.06em}
+.where dd{margin:0;font:700 19px Arial,sans-serif}
+.copy{min-height:48px;padding:0 14px;border:2px solid var(--navy);background:none;font:700 15px Arial,sans-serif;border-radius:8px;cursor:pointer;margin-top:6px;color:var(--navy)}
+.copy[hidden]{display:none}
+footer.site{background:var(--navy);color:#c5cad3;padding:22px 0;font-size:14px}
+
+@media (min-width:800px){
+  .menu-btn,.js .menu-btn{display:none}
+  header .wrap{flex-wrap:nowrap;gap:24px}
+  nav,.js nav{display:block;width:auto}
+  .book{padding:48px 0 56px}
+  .book .wrap{display:grid;grid-template-columns:1fr 420px;gap:48px;align-items:start}
+  .card{margin-top:0}
+  section{padding:60px 0}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #15191d; --surface: #1f252a; --fg: #e9ecef; --muted: #a2adb6; --line: #343c43;
-    --accent: #f5b800; --accent-fg: #15191d; --asphalt: #0d1013; --asphalt-fg: #e9ecef;
-    --stub-bg: #4a3a05; --stub-fg: #ffe28a; --danger: #ff8a80; --ok: #7bd389; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #15191d; --surface: #1f252a; --fg: #e9ecef; --muted: #a2adb6; --line: #343c43;
-  --accent: #f5b800; --accent-fg: #15191d; --asphalt: #0d1013; --asphalt-fg: #e9ecef;
-  --stub-bg: #4a3a05; --stub-fg: #ffe28a; --danger: #ff8a80; --ok: #7bd389; color-scheme: dark;
-}
-* { box-sizing: border-box; }
-[hidden] { display: none !important; }
-html { -webkit-text-size-adjust: 100%; }
-body {
-  margin: 0; background: var(--bg); color: var(--fg);
-  font: 16px/1.5 var(--font-text); overflow-x: hidden;
-}
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--asphalt); }
-h1, h2, h3 { font-family: var(--font-head); line-height: 1.15; text-wrap: balance; margin: 0; }
-h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.01em; }
-h2 { font-size: 1.5rem; font-weight: 800; }
-h3 { font-size: 1.1rem; font-weight: 700; }
-p { margin: 0; }
-a { color: inherit; }
-button, input, select, textarea { font: inherit; color: inherit; }
-:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-.wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-
-/* Header */
-.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--asphalt); color: var(--asphalt-fg); }
-.mock-banner { background: repeating-linear-gradient(135deg, var(--accent) 0 14px, var(--asphalt) 14px 28px); padding: 4px 0; }
-.mock-banner span { display: block; width: fit-content; margin: 0 auto; background: var(--accent); color: var(--accent-fg); font-weight: 800; font-size: 0.85rem; padding: 2px 10px; border-radius: 4px; letter-spacing: 0.02em; }
-.bar { display: flex; align-items: center; gap: 12px; min-height: 60px; padding-block: 6px; }
-.brand { font-family: var(--font-head); font-weight: 800; font-size: 1.15rem; flex: 1; min-width: 0; overflow-wrap: anywhere; }
-.btn-back { display: inline-flex; align-items: center; gap: 6px; min-height: 48px; padding: 0 14px; border-radius: 10px; border: 1px solid #ffffff40; background: transparent; color: var(--asphalt-fg); font-weight: 700; cursor: pointer; }
-.btn-back:hover { background: #ffffff14; }
-
-.stub { display: inline; background: var(--stub-bg); color: var(--stub-fg); border-radius: 4px; padding: 0 4px; font-weight: 700; }
-.tag { display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--stub-fg); background: var(--stub-bg); border-radius: 4px; padding: 1px 6px; vertical-align: middle; }
-
-/* Buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 20px; border-radius: var(--r); border: 2px solid transparent; font-weight: 800; font-size: 1.02rem; cursor: pointer; text-decoration: none; text-align: center; }
-.btn-primary { background: var(--accent); color: var(--accent-fg); }
-.btn-primary:hover { filter: brightness(1.05); }
-.btn-ghost { background: transparent; color: var(--fg); border-color: var(--line); }
-.btn-ghost:hover { border-color: var(--fg); }
-.btn-dark { background: var(--asphalt); color: var(--asphalt-fg); }
-.btn-block { width: 100%; }
-.btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
-.btn-row .btn { flex: 1 1 200px; }
-
-main { padding-block: 0 48px; }
-section { padding-block: 28px; }
-.screen[hidden] { display: none !important; }
-.lead { color: var(--muted); font-size: 1.05rem; max-width: 60ch; }
-
-/* Hero */
-.hero { background: var(--asphalt); color: var(--asphalt-fg); position: relative; overflow: hidden; }
-.hero .wrap { position: relative; padding-block: 28px 32px; display: grid; gap: 16px; }
-.hero .lead { color: #c9d1d7; }
-.tread { position: absolute; right: -40px; top: 0; bottom: 0; width: 120px; opacity: 0.18;
-  background: repeating-linear-gradient(160deg, var(--asphalt-fg) 0 10px, transparent 10px 22px); pointer-events: none; }
-.size-line { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.9rem; color: var(--accent); letter-spacing: 0.04em; }
-
-.how { display: grid; gap: 10px; counter-reset: s; padding: 0; margin: 0; list-style: none; }
-.how li { display: flex; gap: 12px; align-items: flex-start; }
-.how li::before { counter-increment: s; content: counter(s); flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: var(--accent-fg); font-weight: 800; display: grid; place-items: center; }
-
-/* Services */
-.sec-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; margin-bottom: 14px; }
-.services { display: grid; gap: 10px; }
-.svc { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px; display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; align-items: start; }
-.svc p { color: var(--muted); font-size: 0.95rem; grid-column: 1 / -1; }
-.svc .price { font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.svc .price small { font-weight: 500; color: var(--muted); }
-.svc .btn { grid-column: 1 / -1; min-height: 48px; font-size: 0.95rem; }
-
-/* Photos */
-.photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.photo { aspect-ratio: 4 / 3; max-width: 100%; border-radius: var(--r); border: 2px dashed var(--line); background: repeating-linear-gradient(45deg, var(--surface) 0 12px, var(--bg) 12px 24px); display: grid; place-items: center; color: var(--muted); font-weight: 700; text-align: center; padding: 8px; font-size: 0.9rem; }
-
-/* Reviews */
-.reviews { display: grid; gap: 10px; }
-.review { background: var(--surface); border-radius: var(--r); padding: 14px; border-left: 4px solid var(--accent); display: grid; gap: 6px; }
-.stars { color: var(--accent); letter-spacing: 2px; font-size: 1.05rem; }
-.review .who { color: var(--muted); font-size: 0.88rem; }
-
-/* Contacts */
-.contacts { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; display: grid; gap: 14px; }
-.kv { display: grid; gap: 2px; }
-.kv dt { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 700; }
-.kv dd { margin: 0; font-size: 1.08rem; }
-.phone-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-.copy-note { font-size: 0.85rem; color: var(--ok); min-height: 1.2em; }
-
-/* Forms */
-.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; display: grid; gap: 18px; }
-.field { display: grid; gap: 6px; min-width: 0; }
-.field > label, .legend { font-weight: 700; }
-fieldset { border: 0; padding: 0; margin: 0; min-width: 0; display: grid; gap: 8px; }
-legend { padding: 0; font-weight: 700; margin-bottom: 8px; }
-.hint { color: var(--muted); font-size: 0.88rem; }
-select, input[type="date"], input[type="text"], input[type="tel"], textarea {
-  width: 100%; min-height: 52px; border: 2px solid var(--line); border-radius: 10px; background: var(--bg); padding: 10px 12px; font-size: 1rem;
-}
-textarea { min-height: 96px; resize: vertical; }
-select:focus, input:focus, textarea:focus { border-color: var(--accent); outline: none; }
-.choices { display: grid; gap: 8px; }
-.choices.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.choices.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.choice { position: relative; }
-.choice input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
-.choice span { display: flex; flex-direction: column; justify-content: center; min-height: 52px; padding: 8px 12px; border: 2px solid var(--line); border-radius: 10px; background: var(--bg); font-weight: 700; line-height: 1.25; }
-.choice span small { font-weight: 500; color: var(--muted); }
-.choices.four .choice span, .choices.two .choice span { align-items: center; text-align: center; }
-.choice input:checked + span { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 18%, var(--surface)); }
-.choice input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
-.quick { display: flex; flex-wrap: wrap; gap: 8px; }
-.quick button { min-height: 48px; padding: 0 14px; border-radius: 10px; border: 2px solid var(--line); background: var(--bg); font-weight: 700; cursor: pointer; }
-.quick button[aria-pressed="true"] { border-color: var(--accent); }
-.err { color: var(--danger); font-weight: 700; font-size: 0.92rem; }
-
-/* Result */
-.result { background: var(--asphalt); color: var(--asphalt-fg); border-radius: var(--r); padding: 16px; display: grid; gap: 8px; }
-.result .sum { font-family: var(--font-head); font-size: 2.2rem; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--accent); line-height: 1.1; }
-.result .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: #c9d1d7; }
-.result ul { margin: 0; padding-left: 18px; color: #c9d1d7; font-size: 0.92rem; font-variant-numeric: tabular-nums; }
-.result .note { color: #c9d1d7; font-size: 0.85rem; }
-
-/* Steps */
-.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 0; padding: 0; list-style: none; }
-.steps li { font-size: 0.78rem; font-weight: 700; color: var(--muted); border-top: 4px solid var(--line); padding-top: 6px; line-height: 1.2; }
-.steps li.done { border-color: var(--asphalt); color: var(--fg); }
-.steps li.now { border-color: var(--accent); color: var(--fg); }
-:root[data-theme="dark"] .steps li.done { border-color: var(--muted); }
-.mini-price { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; padding: 12px 14px; background: var(--bg); border-radius: 10px; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
-.mini-price b { font-size: 1.2rem; }
-
-/* Summary */
-.summary { margin: 0; display: grid; gap: 0; }
-.summary div { display: grid; grid-template-columns: minmax(0, 9em) minmax(0, 1fr); gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
-.summary dt { color: var(--muted); }
-.summary dd { margin: 0; font-weight: 700; overflow-wrap: anywhere; }
-
-.success-mark { width: 72px; height: 72px; border-radius: 50%; background: var(--accent); color: var(--accent-fg); display: grid; place-items: center; font-size: 2.4rem; font-weight: 800; }
-.footer { color: var(--muted); font-size: 0.85rem; padding-block: 24px; border-top: 1px solid var(--line); }
-
-@media (min-width: 760px) {
-  h1 { font-size: 2.8rem; }
-  .services { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .reviews { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .photos { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .hero .wrap { padding-block: 48px 52px; }
-  .tread { width: 260px; right: 0; }
-  .two-col { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 20px; align-items: start; }
-  .contacts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .contacts .full { grid-column: 1 / -1; }
-  .narrow { max-width: 720px; margin: 0 auto; }
-}
-@media (min-width: 1040px) {
-  .services { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .reviews { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .btn, .choice span, .quick button { transition: border-color .15s, background-color .15s, filter .15s; }
-}
-/* theme: noyar */
-:root { --bg: #f1f3f6; --surface: #ffffff; --fg: #16202e; --muted: #56627a; --line: #d2d8e2; --accent: #ff8a1f; --accent-fg: #1a1206; --asphalt: #162a4a; --asphalt-fg: #f2f5fa; --r: 8px; --font-head: Georgia, "Times New Roman", "PT Serif", serif }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0e1522; --surface: #17213a; --fg: #e8edf5; --muted: #9aa7bf; --line: #2a3756; --accent: #ff9a3c; --accent-fg: #1a1206; --asphalt: #0a1324; --asphalt-fg: #e8edf5; color-scheme: dark } }
-:root[data-theme="dark"] { --bg: #0e1522; --surface: #17213a; --fg: #e8edf5; --muted: #9aa7bf; --line: #2a3756; --accent: #ff9a3c; --accent-fg: #1a1206; --asphalt: #0a1324; --asphalt-fg: #e8edf5; color-scheme: dark }
-
-h1, h2 { font-weight: 700; letter-spacing: -0.01em; }
-.btn, .btn-back, .quick button, select, input[type="date"], input[type="text"], input[type="tel"], textarea, .choice span, .mini-price { border-radius: 6px; }
-.review { border-left: 0; border-bottom: 3px solid var(--accent); }
-.tread { width: 100%; right: 0; opacity: 0.1;
-  background: linear-gradient(var(--asphalt-fg) 1px, transparent 1px) 0 0 / 28px 28px, linear-gradient(90deg, var(--asphalt-fg) 1px, transparent 1px) 0 0 / 28px 28px; }
-@media (min-width: 760px) { .tread { width: 100%; right: 0; } }
 </style>
 </head>
 <body>
+<div class="bar">Макет для «Но-Яр Сервис» — не для публикации</div>
 
-<header class="top">
-  <div class="wrap bar">
-    <button type="button" class="btn-back" id="backBtn" hidden>← Назад</button>
-    <div class="brand">Но-Яр Сервис · автосервис, шиномонтаж</div>
+<header>
+  <div class="wrap">
+    <a class="sign" href="index.html">«НО-ЯР <span>Сервис</span>»</a>
+    <a class="wa" href="https://wa.me/79889892460" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.5.2.3.7 1.2 1.6 2 1.1.9 2 1.2 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l1.9.9c.3.1.4.2.5.3.1.2.1.7-.1 1.2z"/></svg>WhatsApp</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Меню</button>
+    <nav id="menu" aria-label="Разделы">
+      <ul>
+        <li><a href="#zapis">Запись</a></li>
+        <li><a href="#uslugi">Услуги</a></li>
+        <li><a href="#otzyvy">Отзывы</a></li>
+        <li><a href="#adres">Адрес</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
 <main>
-<!-- ============ 1. ГЛАВНАЯ ============ -->
-<div class="screen" id="screen-home" data-screen="home">
-  <div class="hero">
-    <div class="tread" aria-hidden="true"></div>
+  <div class="book" id="zapis">
     <div class="wrap">
-      <div class="size-line">R13 · R14 · R15 · R16 · R17 · R18 · R19 · R20 · R21 · R22+</div>
-      <h1>Запишитесь на шиномонтаж без звонка</h1>
-      <p class="lead">Выберите услугу, сразу узнайте примерную цену и оставьте заявку. Мы перезвоним, чтобы подтвердить время.</p>
-      <div class="btn-row">
-        <button type="button" class="btn btn-primary" data-go="calc">Рассчитать цену</button>
-        <button type="button" class="btn btn-ghost" style="color:var(--asphalt-fg);border-color:#ffffff55" data-go="form">Записаться</button>
+      <div>
+        <h1>Автосервис и шиномонтаж на Качалова, 39а</h1>
+        <p class="lead">Запишитесь на удобный день: напишите в WhatsApp или оставьте заявку. На субботу — только по предварительной записи.</p>
+        <table class="hours">
+          <tr><th>Пн–Пт</th><td>08:30–20:00</td></tr>
+          <tr class="sat"><th>Суббота</th><td>по предварительной записи</td></tr>
+          <tr><th>Воскресенье</th><td><span class="z">[вставить график]</span></td></tr>
+        </table>
+        <div class="acts">
+          <a class="btn wab" href="https://wa.me/79889892460" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.5.2.3.7 1.2 1.6 2 1.1.9 2 1.2 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l1.9.9c.3.1.4.2.5.3.1.2.1.7-.1 1.2z"/></svg>Записаться в WhatsApp</a>
+          <a class="btn ol" href="tel:+79889892460">+7 988 989 24 60</a>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Заявка на запись</h2>
+        <form action="#zapis-ok" method="get">
+          <label>Услуга
+            <select name="usluga" required><option>Шиномонтаж</option><option>Замена масла</option><option>Ремонт и диагностика</option></select>
+          </label>
+          <label>Дата<input type="date" name="data" required></label>
+          <label>Имя<input type="text" name="imya" autocomplete="name" required></label>
+          <label>Телефон<input type="tel" name="telefon" autocomplete="tel" inputmode="tel" required pattern="[\d\s\+\(\)\-]{10,}"></label>
+          <p class="hint">На субботу — только по предварительной записи.</p>
+          <button class="btn nv" type="submit">Записаться</button>
+        </form>
+        <p class="ok" id="zapis-ok" role="status">Заявка принята (макет)</p>
       </div>
     </div>
   </div>
 
-  <section>
-    <div class="wrap">
-      <h2 style="margin-bottom:12px">Как это работает</h2>
-      <ol class="how">
-        <li><span>Выберите услугу и размер колёс.</span></li>
-        <li><span>Посмотрите примерную цену — она считается сразу.</span></li>
-        <li><span>Выберите день и время, оставьте телефон. Мастер подтвердит запись.</span></li>
-      </ol>
+  <section id="uslugi">
+    <div class="wrap two">
+      <div>
+        <h2>Что делаем</h2>
+        <p>Мастерская на первом этаже, ул. Качалова, 39а.</p>
+      </div>
+      <ul class="list">
+        <li><b class="tm">Шиномонтаж</b><span class="p"><span class="z">[вставить цену]</span></span></li>
+        <li><b>Замена масла</b><span class="p"><span class="z">[вставить цену]</span></span></li>
+        <li><b>Ремонт и диагностика</b><span class="p"><span class="z">[вставить цену]</span></span></li>
+      </ul>
     </div>
   </section>
 
-  <section id="services">
-    <div class="wrap">
-      <div class="sec-head"><h2>Услуги и цены</h2></div>
-      <p class="hint" style="margin-bottom:14px">Точную цену мастер назовёт на месте.</p>
-      <div class="services" id="serviceList"></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="sec-head"><h2>Мастерская</h2><span class="tag">заглушки</span></div>
-      <div class="photos">
-        <div class="photo">фото мастерской</div>
-        <div class="photo">фото мастерской</div>
-        <div class="photo">фото мастерской</div>
-        <div class="photo">фото мастерской</div>
+  <section class="master" id="otzyvy">
+    <div class="wrap two">
+      <div>
+        <h2>Клиенты возвращаются к Владимиру</h2>
+        <span class="rating">4,2 по 7 оценкам в 2ГИС</span>
+      </div>
+      <div>
+        <blockquote>Хороший сервис. Постоянно обслуживаю здесь свою машину. Владимир ответственно и профессионально относится к своей работе. Рекомендую.<footer>Сергей Ананьев, 2ГИС</footer></blockquote>
+        <blockquote>ОБСЛУЖИВАЮ СВОИ АВТОМОБИЛИ ТОЛЬКО У ВЛАДИМИРА УЖЕ ЛЕТ 7 ДЕЛАЕТ ВСЕ ОЧЕНЬ КАЧЕСТВЕННО<footer>Михаил Новиков, 2ГИС</footer></blockquote>
+        <blockquote>отличный сервис<footer>Анастасия, 2ГИС</footer></blockquote>
+        <a class="btn ol" style="color:#fff;border-color:#fff" href="https://2gis.ru/volgograd/firm/70000001032442011/tab/reviews" target="_blank" rel="noopener">Отзывы в 2ГИС</a>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="wrap">
-      <div class="sec-head"><h2>Отзывы</h2></div><p class="hint" style="margin-bottom:14px">Рейтинг 4.2 по 7 оценкам в 2ГИС</p>
-      <div class="reviews">
-        <article class="review"><p><span class="stub">[вставить отзыв]</span></p><span class="who">текст из карточки 2ГИС, без имени</span></article>
-        <article class="review"><p><span class="stub">[вставить отзыв]</span></p><span class="who">текст из карточки 2ГИС, без имени</span></article>
-        <article class="review"><p><span class="stub">[вставить отзыв]</span></p><span class="who">текст из карточки 2ГИС, без имени</span></article>
-      </div>
-    </div>
+    <div class="wrap"><div class="photo"><span class="z">[фото мастерской]</span></div></div>
   </section>
 
-  <section id="contacts">
-    <div class="wrap">
-      <h2 style="margin-bottom:14px">Как нас найти</h2>
-      <dl class="contacts">
-        <div class="kv"><dt>Адрес</dt><dd>ул. Качалова, 39а, 400040, Волгоград, Краснооктябрьский район, 1 этаж</dd></div>
-        <div class="kv"><dt>Часы работы</dt><dd>пн–пт 08:30–20:00 🟡 (по скрину видно только «сегодня»), сб — по предварительной записи</dd></div>
-        <div class="kv"><dt>Телефон</dt><dd class="phone-row"><span id="phoneText">+7 988 989 24 60</span>
-          <button type="button" class="btn btn-ghost" id="copyPhone" style="min-height:48px">Скопировать</button></dd>
-          <dd class="copy-note" id="copyNote" aria-live="polite"></dd></div>
-        <div class="kv"><dt>Мессенджеры</dt><dd>WhatsApp: +7 988 989 24 60</dd><dd class="hint">Работает с предварительной записью по субботам</dd></div>
-        <div class="kv full"><dt>Карта</dt><dd><a class="btn btn-dark btn-block" href="https://2gis.ru/" target="_blank" rel="noopener noreferrer">Открыть в 2ГИС</a>
-          <p class="hint" style="margin-top:6px">Сейчас кнопка ведёт на главную 2ГИС. <span class="stub">[вставить ссылку на карточку 2ГИС]</span></p></dd></div>
+  <section class="where" id="adres">
+    <div class="wrap two">
+      <dl>
+        <div><dt>Адрес</dt><dd>ул. Качалова, 39а, 1 этаж</dd><span>Краснооктябрьский район, Волгоград, 400040</span></div>
+        <div><dt>Телефон и WhatsApp</dt><dd><a href="tel:+79889892460">+7 988 989 24 60</a></dd><button class="copy" type="button" data-copy="+7 988 989 24 60" hidden>Скопировать номер</button></div>
+        <div><dt>График</dt><dd>Пн–Пт 08:30–20:00</dd><span>Суббота — по предварительной записи</span></div>
       </dl>
-    </div>
-  </section>
-
-  <div class="wrap footer">Макет сайта для Но-Яр Сервис. Всё в квадратных скобках — заглушки. Заявки никуда не отправляются.</div>
-</div>
-
-<!-- ============ 2. РАСЧЁТ ЦЕНЫ ============ -->
-<div class="screen" id="screen-calc" data-screen="calc" hidden>
-  <section>
-    <div class="wrap">
-      <h1 style="font-size:1.9rem;margin-bottom:6px">Расчёт цены</h1>
-      <p class="lead" style="margin-bottom:18px">Цена пересчитывается, как только вы что-то меняете.</p>
-      <div class="two-col">
-        <form class="panel" id="calcForm" novalidate>
-          <div class="field">
-            <label for="c-service">Услуга</label>
-            <select id="c-service" data-bind="service"></select>
-          </div>
-          <div class="field">
-            <label for="c-diameter">Диаметр диска</label>
-            <select id="c-diameter" data-bind="diameter"></select>
-            <span class="hint">Смотрите на боковине шины: 205/55 <b>R16</b> — это R16.</span>
-          </div>
-          <fieldset>
-            <legend>Сколько колёс</legend>
-            <div class="choices four" data-radio="count" data-prefix="c"></div>
-          </fieldset>
-          <fieldset>
-            <legend>Тип диска</legend>
-            <div class="choices two" data-radio="disk" data-prefix="c"></div>
-          </fieldset>
-          <div class="field">
-            <label for="c-date">Срок или дата <span class="hint">(можно не указывать)</span></label>
-            <div class="quick" data-quick="c"></div>
-            <input type="date" id="c-date" data-bind="date">
-          </div>
-        </form>
-        <div style="display:grid;gap:12px;align-content:start">
-          <div class="result" aria-live="polite">
-            <span class="label">Итого</span>
-            <span class="sum" id="calcSum">—</span>
-            <span class="label" style="color:var(--accent)">Примерная цена</span>
-            <ul id="calcBreak"></ul>
-            <p class="note">Точную сумму мастер назовёт после осмотра колёс.</p>
-          </div>
-          <button type="button" class="btn btn-primary btn-block" id="calcToForm">Записаться с этим расчётом</button>
-        </div>
+      <div class="acts" style="align-content:start">
+        <a class="btn nv" href="https://2gis.ru/volgograd/firm/70000001032442011" target="_blank" rel="noopener">Открыть в 2ГИС</a>
+        <a class="btn wab" href="https://wa.me/79889892460" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
   </section>
-</div>
-
-<!-- ============ 3. ФОРМА В НЕСКОЛЬКО ШАГОВ ============ -->
-<div class="screen" id="screen-form" data-screen="form" hidden>
-  <section>
-    <div class="wrap narrow">
-      <h1 style="font-size:1.9rem;margin-bottom:12px">Заявка на запись</h1>
-      <ol class="steps" id="stepsBar">
-        <li>1. Что нужно</li><li>2. Колёса</li><li>3. Дата и время</li><li>4. Контакты</li>
-      </ol>
-      <form class="panel" id="leadForm" style="margin-top:14px" novalidate>
-        <!-- step 1 -->
-        <div class="step" data-step="1">
-          <fieldset>
-            <legend>Что нужно сделать?</legend>
-            <div class="choices" data-radio="service" data-prefix="f"></div>
-          </fieldset>
-        </div>
-        <!-- step 2 -->
-        <div class="step" data-step="2" hidden style="display:grid;gap:18px">
-          <div class="field">
-            <label for="f-diameter">Диаметр диска</label>
-            <select id="f-diameter" data-bind="diameter"></select>
-            <span class="hint">Смотрите на боковине шины: 205/55 <b>R16</b> — это R16.</span>
-          </div>
-          <fieldset>
-            <legend>Сколько колёс</legend>
-            <div class="choices four" data-radio="count" data-prefix="f"></div>
-          </fieldset>
-          <fieldset>
-            <legend>Тип диска</legend>
-            <div class="choices two" data-radio="disk" data-prefix="f"></div>
-          </fieldset>
-        </div>
-        <!-- step 3 -->
-        <div class="step" data-step="3" hidden style="display:grid;gap:18px">
-          <div class="field">
-            <label for="f-date">День</label>
-            <div class="quick" data-quick="f"></div>
-            <input type="date" id="f-date" data-bind="date">
-          </div>
-          <fieldset>
-            <legend>Время <span class="tag">пример</span></legend>
-            <div class="choices four" data-radio="time" data-prefix="f"></div>
-          </fieldset>
-        </div>
-        <!-- step 4 -->
-        <div class="step" data-step="4" hidden style="display:grid;gap:18px">
-          <div class="field">
-            <label for="f-name">Как к вам обращаться</label>
-            <input type="text" id="f-name" data-bind="name" autocomplete="given-name" placeholder="Имя">
-          </div>
-          <div class="field">
-            <label for="f-phone">Телефон</label>
-            <input type="tel" id="f-phone" data-bind="phone" autocomplete="tel" inputmode="tel" placeholder="+7 900 000-00-00">
-          </div>
-          <div class="field">
-            <label for="f-car">Машина <span class="hint">(необязательно)</span></label>
-            <input type="text" id="f-car" data-bind="car" placeholder="Например, Kia Rio">
-          </div>
-          <div class="field">
-            <label for="f-comment">Комментарий <span class="hint">(необязательно)</span></label>
-            <textarea id="f-comment" data-bind="comment" placeholder="Например: шины привезу с собой"></textarea>
-          </div>
-        </div>
-
-        <p class="err" id="formErr" role="alert" hidden></p>
-        <div class="mini-price" id="formPrice"><span>Примерная цена</span><b id="formSum">—</b></div>
-        <button type="submit" class="btn btn-primary btn-block" id="nextBtn">Дальше</button>
-      </form>
-    </div>
-  </section>
-</div>
-
-<!-- ============ 4. ПОДТВЕРЖДЕНИЕ ============ -->
-<div class="screen" id="screen-confirm" data-screen="confirm" hidden>
-  <section>
-    <div class="wrap narrow">
-      <h1 style="font-size:1.9rem;margin-bottom:6px">Проверьте заявку</h1>
-      <p class="lead" style="margin-bottom:16px">Если что-то не так, нажмите «Изменить».</p>
-      <div class="panel">
-        <dl class="summary" id="summary"></dl>
-        <div class="result"><span class="label">Примерная цена</span><span class="sum" id="confirmSum">—</span>
-          <p class="note">Окончательную сумму мастер назовёт после осмотра.</p></div>
-        <div class="btn-row">
-          <button type="button" class="btn btn-ghost" id="editBtn">Изменить</button>
-          <button type="button" class="btn btn-primary" id="sendBtn">Отправить</button>
-        </div>
-        <p class="hint">На макете заявка никуда не уходит.</p>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ============ 5. УСПЕХ ============ -->
-<div class="screen" id="screen-success" data-screen="success" hidden>
-  <section>
-    <div class="wrap narrow" style="display:grid;gap:16px;justify-items:start">
-      <div class="success-mark" aria-hidden="true">✓</div>
-      <h1 style="font-size:2rem">Заявка принята</h1>
-      <p class="lead" id="successText">Мастер перезвонит, чтобы подтвердить время.</p>
-      <div class="panel" style="width:100%">
-        <dl class="contacts" style="border:0;padding:0">
-          <div class="kv"><dt>Адрес</dt><dd>ул. Качалова, 39а, 400040, Волгоград, Краснооктябрьский район, 1 этаж</dd></div>
-          <div class="kv"><dt>Телефон</dt><dd>+7 988 989 24 60</dd></div>
-        </dl>
-        <a class="btn btn-dark btn-block" href="https://2gis.ru/" target="_blank" rel="noopener noreferrer">Открыть в 2ГИС</a>
-      </div>
-      <p class="hint">Это макет: данные не сохранены и никуда не отправлены.</p>
-      <button type="button" class="btn btn-ghost btn-block" id="homeBtn">На главную</button>
-    </div>
-  </section>
-</div>
 </main>
 
+<footer class="site"><div class="wrap">«Но-Яр Сервис», ул. Качалова, 39а, Волгоград. Пн–пт 08:30–20:00, суббота — по предварительной записи. +7 988 989 24 60.</div></footer>
+
 <script>
-(function () {
-  "use strict";
-
-  /* ---------- Данные (пример) ---------- */
-  // base: цена за 1 колесо R13 на штампованном диске; cast: множитель для литого диска.
-  var SERVICES = [
-    { id: "s1", name: "Шиномонтаж", desc: null, base: null, cast: 1 },
-    { id: "s2", name: "Замена масла", desc: null, base: null, cast: 1 },
-    { id: "s3", name: "Ремонт и диагностика", desc: null, base: null, cast: 1 }
-  ];
-  var DIAMETERS = [
-    { v: 13, label: "R13", k: 1.0 }, { v: 14, label: "R14", k: 1.0 }, { v: 15, label: "R15", k: 1.1 },
-    { v: 16, label: "R16", k: 1.2 }, { v: 17, label: "R17", k: 1.35 }, { v: 18, label: "R18", k: 1.5 },
-    { v: 19, label: "R19", k: 1.7 }, { v: 20, label: "R20", k: 1.9 }, { v: 21, label: "R21", k: 2.1 },
-    { v: 22, label: "R22 и больше", k: 2.3 }
-  ];
-  var COUNTS = [1, 2, 3, 4];
-  var DISKS = [{ v: "steel", label: "Штампованный", hint: "железный" }, { v: "cast", label: "Литой", hint: "лёгкий сплав" }];
-  var TIMES = ["08:30", "09:30", "10:30", "11:30", "12:30", "13:30", "14:30", "15:30", "16:30", "17:30", "18:30"]; // по часам работы из data/
-  var URGENT = 0.2; // надбавка за запись на сегодня (пример)
-  var PRICE_STUB = "[вставить цену]";
-  function priceText(s) { return s.base ? "от " + rub(s.base) : PRICE_STUB; }
-
-  /* ---------- Состояние: одно на калькулятор и форму ---------- */
-  var state = { service: "s1", diameter: "16", count: "4", disk: "steel", date: "", time: "", name: "", phone: "", car: "", comment: "" };
-  var step = 1;
-  var submitted = false;
-  var history = []; // стек экранов для кнопки «← Назад»: {screen, step}
-
-  /* ---------- Даты ---------- */
-  function pad(n) { return (n < 10 ? "0" : "") + n; }
-  function isoLocal(d) { return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
-  function today() { return isoLocal(new Date()); }
-  function tomorrow() { var d = new Date(); d.setDate(d.getDate() + 1); return isoLocal(d); }
-  function humanDate(iso) {
-    if (!iso) return "";
-    var p = iso.split("-"); var d = new Date(+p[0], +p[1] - 1, +p[2]);
-    var s = d.toLocaleDateString("ru-RU", { weekday: "short", day: "numeric", month: "long" });
-    if (iso === today()) s = "сегодня, " + s; else if (iso === tomorrow()) s = "завтра, " + s;
-    return s;
-  }
-
-  /* ---------- Расчёт (чистая функция) ---------- */
-  function round10(x) { return Math.round(x / 10) * 10; }
-  function rub(x) { return x.toLocaleString("ru-RU") + " ₽"; }
-  function calc(s, todayIso) {
-    var svc = SERVICES.filter(function (x) { return x.id === s.service; })[0];
-    var dia = DIAMETERS.filter(function (x) { return String(x.v) === String(s.diameter); })[0];
-    var count = parseInt(s.count, 10);
-    if (!svc || !dia || !(count >= 1) || (s.disk !== "steel" && s.disk !== "cast")) return null;
-    if (!svc.base) return { svc: svc, dia: dia, count: count, noPrice: true };
-    var perWheel = round10(svc.base * dia.k * (s.disk === "cast" ? svc.cast : 1));
-    var subtotal = perWheel * count;
-    var urgent = s.date && s.date === todayIso ? round10(subtotal * URGENT) : 0;
-    return {
-      svc: svc, dia: dia, count: count, perWheel: perWheel, subtotal: subtotal, urgent: urgent,
-      total: subtotal + urgent, noDate: !s.date, past: !!s.date && s.date < todayIso
-    };
-  }
-  window.__calc = calc; // для проверки на крайних значениях
-
-  /* ---------- Построение полей ---------- */
-  var serviceList = document.getElementById("serviceList");
-  SERVICES.forEach(function (s) {
-    var el = document.createElement("article");
-    el.className = "svc";
-    el.innerHTML = '<h3></h3><span class="price">' + (s.base ? '<small>от</small> ' + rub(s.base) : '<span class="stub">' + PRICE_STUB + '</span>') + '</span><p></p>' +
-      '<button type="button" class="btn btn-ghost">Рассчитать</button>';
-    el.querySelector("h3").textContent = s.name;
-    if (s.desc) el.querySelector("p").textContent = s.desc; else el.querySelector("p").innerHTML = '<span class="stub">[вставить описание]</span>';
-    el.querySelector("button").addEventListener("click", function () { setState("service", s.id); go("calc"); });
-    serviceList.appendChild(el);
-  });
-
-  document.querySelectorAll('select[data-bind="service"]').forEach(function (sel) {
-    SERVICES.forEach(function (s) { sel.add(new Option(s.name + " — " + priceText(s), s.id)); });
-  });
-  document.querySelectorAll('select[data-bind="diameter"]').forEach(function (sel) {
-    DIAMETERS.forEach(function (d) { sel.add(new Option(d.label, String(d.v))); });
-  });
-
-  function radioGroup(container, key, items) {
-    var prefix = container.getAttribute("data-prefix");
-    items.forEach(function (it, i) {
-      var lab = document.createElement("label");
-      lab.className = "choice";
-      var inp = document.createElement("input");
-      inp.type = "radio"; inp.name = prefix + "-" + key; inp.value = it.v; inp.id = prefix + "-" + key + "-" + i;
-      inp.setAttribute("data-bind", key);
-      var sp = document.createElement("span");
-      sp.textContent = it.label;
-      if (it.hint) { var sm = document.createElement("small"); sm.textContent = it.hint; sp.appendChild(sm); }
-      lab.appendChild(inp); lab.appendChild(sp);
-      container.appendChild(lab);
+document.documentElement.className = "js";
+(function(){
+  var b = document.querySelector(".menu-btn"), n = document.getElementById("menu");
+  b.addEventListener("click", function(){ var o = n.classList.toggle("open"); b.setAttribute("aria-expanded", o ? "true" : "false"); });
+  n.addEventListener("click", function(e){ if (e.target.closest("a")) { n.classList.remove("open"); b.setAttribute("aria-expanded", "false"); } });
+  var c = document.querySelector("[data-copy]");
+  if (c) {
+    c.hidden = false;
+    c.addEventListener("click", function(){
+      var t = c.getAttribute("data-copy");
+      function done(){ c.textContent = "Номер скопирован"; }
+      if (navigator.clipboard) navigator.clipboard.writeText(t).then(done, function(){ c.textContent = t; });
+      else c.textContent = t;
     });
   }
-  document.querySelectorAll("[data-radio]").forEach(function (c) {
-    var key = c.getAttribute("data-radio");
-    if (key === "count") radioGroup(c, key, COUNTS.map(function (n) { return { v: String(n), label: String(n) }; }));
-    if (key === "disk") radioGroup(c, key, DISKS);
-    if (key === "time") radioGroup(c, key, TIMES.map(function (t) { return { v: t, label: t }; }));
-    if (key === "service") radioGroup(c, key, SERVICES.map(function (s) { return { v: s.id, label: s.name, hint: s.base ? "от " + rub(s.base) + " за колесо" : PRICE_STUB }; }));
-  });
-
-  document.querySelectorAll("[data-quick]").forEach(function (q) {
-    var prefix = q.getAttribute("data-quick");
-    var opts = [["Сегодня", "today"], ["Завтра", "tomorrow"]];
-    if (prefix === "c") opts.push(["Без даты", ""]);
-    opts.forEach(function (o) {
-      var b = document.createElement("button");
-      b.type = "button"; b.textContent = o[0]; b.setAttribute("data-q", o[1]);
-      b.addEventListener("click", function () {
-        setState("date", o[1] === "today" ? today() : o[1] === "tomorrow" ? tomorrow() : "");
-        syncFields();
-      });
-      q.appendChild(b);
-    });
-  });
-  document.querySelectorAll('input[type="date"]').forEach(function (i) { i.min = today(); });
-
-  /* ---------- Привязка полей к состоянию ---------- */
-  function setState(key, val) { state[key] = val; updatePrices(); }
-  document.addEventListener("input", onField);
-  document.addEventListener("change", onField);
-  function onField(e) {
-    var key = e.target.getAttribute && e.target.getAttribute("data-bind");
-    if (!key) return;
-    if (e.target.type === "radio" && !e.target.checked) return;
-    setState(key, e.target.value);
-    if (key === "date") syncQuick();
-    hideErr();
-  }
-  // Записывает состояние в поля видимого экрана. Вызывается только при переходах, не по таймеру.
-  function syncFields() {
-    document.querySelectorAll("[data-bind]").forEach(function (el) {
-      var key = el.getAttribute("data-bind");
-      if (el.type === "radio") el.checked = el.value === state[key];
-      else if (el.value !== state[key]) el.value = state[key];
-    });
-    syncQuick();
-    updatePrices();
-  }
-  function syncQuick() {
-    document.querySelectorAll("[data-q]").forEach(function (b) {
-      var q = b.getAttribute("data-q");
-      var v = q === "today" ? today() : q === "tomorrow" ? tomorrow() : "";
-      b.setAttribute("aria-pressed", String(state.date === v));
-    });
-  }
-
-  function updatePrices() {
-    var r = calc(state, today());
-    var sum = document.getElementById("calcSum"), br = document.getElementById("calcBreak");
-    var formSum = document.getElementById("formSum");
-    br.innerHTML = "";
-    if (!r) { sum.textContent = "—"; formSum.textContent = "—"; return; }
-    if (r.noPrice) {
-      sum.textContent = PRICE_STUB; formSum.textContent = PRICE_STUB;
-      [r.svc.name, r.dia.label + ", " + (state.disk === "cast" ? "литой" : "штампованный") + " диск",
-       r.count + " " + wheelsWord(r.count), "Цена услуги ещё не указана"].forEach(function (t) {
-        var li = document.createElement("li"); li.textContent = t; br.appendChild(li); });
-      return;
-    }
-    sum.textContent = "≈ " + rub(r.total);
-    formSum.textContent = "≈ " + rub(r.total);
-    var lines = [
-      r.svc.name,
-      r.dia.label + ", " + (state.disk === "cast" ? "литой" : "штампованный") + " диск",
-      rub(r.perWheel) + " × " + r.count + " " + wheelsWord(r.count) + " = " + rub(r.subtotal)
-    ];
-    if (r.urgent) lines.push("Срочно, сегодня: +" + Math.round(URGENT * 100) + "% = +" + rub(r.urgent));
-    else if (r.noDate) lines.push("Срок не указан — считаем без надбавки за срочность");
-    else if (r.past) lines.push("Эта дата уже прошла — выберите другую");
-    else lines.push("Дата: " + humanDate(state.date) + ", без надбавки");
-    lines.forEach(function (t) { var li = document.createElement("li"); li.textContent = t; br.appendChild(li); });
-  }
-  function wheelsWord(n) { return n === 1 ? "колесо" : n < 5 ? "колеса" : "колёс"; }
-
-  /* ---------- Экраны и «← Назад» ---------- */
-  var SCREENS = ["home", "calc", "form", "confirm", "success"];
-  var current = { screen: "home", step: 1 };
-
-  function show(screen, s) {
-    current = { screen: screen, step: s || step };
-    if (screen === "form") step = current.step;
-    SCREENS.forEach(function (n) { document.getElementById("screen-" + n).hidden = n !== screen; });
-    document.getElementById("backBtn").hidden = screen === "home";
-    if (screen === "form") renderStep();
-    if (screen === "confirm") renderSummary();
-    syncFields();
-    var wantHash = screen === "home" && !location.hash ? "" : "#" + screen;
-    if (wantHash && location.hash !== wantHash) location.hash = wantHash;
-    window.scrollTo(0, 0);
-  }
-  function go(screen, s) {
-    history.push({ screen: current.screen, step: current.step });
-    show(screen, s);
-  }
-  function back() {
-    var prev = history.pop();
-    if (!prev) { show("home"); return; }
-    show(prev.screen, prev.step);
-  }
-  document.getElementById("backBtn").addEventListener("click", back);
-  document.querySelectorAll("[data-go]").forEach(function (b) {
-    b.addEventListener("click", function () { go(b.getAttribute("data-go"), b.getAttribute("data-go") === "form" ? 1 : undefined); });
-  });
-  document.getElementById("calcToForm").addEventListener("click", function () { go("form", 3); });
-  document.getElementById("editBtn").addEventListener("click", function () { go("form", 1); });
-  document.getElementById("homeBtn").addEventListener("click", function () { history = []; submitted = false; show("home"); });
-
-  // Ручной ввод адреса с #экраном или кнопка «назад» браузера.
-  window.addEventListener("hashchange", function () {
-    var h = location.hash.replace("#", "") || "home";
-    if (h !== current.screen && SCREENS.indexOf(h) >= 0) routeTo(h);
-  });
-  function routeTo(h) {
-    if (h === "confirm" && firstInvalidStep() > 0) { show("form", firstInvalidStep()); return; }
-    if (h === "success" && !submitted) { show("home"); return; }
-    show(h, h === "form" ? step : undefined);
-  }
-
-  /* ---------- Шаги формы ---------- */
-  function stepError(n) {
-    if (n === 1 && !state.service) return "Выберите услугу.";
-    if (n === 2 && (!state.diameter || !state.count || !state.disk)) return "Укажите диаметр, количество колёс и тип диска.";
-    if (n === 3) {
-      if (!state.date) return "Выберите день.";
-      if (state.date < today()) return "Эта дата уже прошла. Выберите сегодня или позже.";
-      if (!state.time) return "Выберите время.";
-    }
-    if (n === 4) {
-      var digits = state.phone.replace(/\D/g, "");
-      if (digits.length < 10 || digits.length > 12) return "Введите телефон полностью, например +7 900 000-00-00.";
-    }
-    return "";
-  }
-  function firstInvalidStep() { for (var i = 1; i <= 4; i++) if (stepError(i)) return i; return 0; }
-  function renderStep() {
-    document.querySelectorAll(".step").forEach(function (el) { el.hidden = +el.getAttribute("data-step") !== step; });
-    document.querySelectorAll("#stepsBar li").forEach(function (li, i) {
-      li.className = i + 1 < step ? "done" : i + 1 === step ? "now" : "";
-    });
-    document.getElementById("formPrice").hidden = step === 1;
-    document.getElementById("nextBtn").textContent = step === 4 ? "Проверить заявку" : "Дальше";
-    hideErr();
-  }
-  function hideErr() { document.getElementById("formErr").hidden = true; }
-  document.getElementById("leadForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    var msg = stepError(step);
-    var err = document.getElementById("formErr");
-    if (msg) { err.textContent = msg; err.hidden = false; return; }
-    if (step < 4) go("form", step + 1); else go("confirm");
-  });
-  document.getElementById("calcForm").addEventListener("submit", function (e) { e.preventDefault(); });
-
-  /* ---------- Подтверждение ---------- */
-  function renderSummary() {
-    var r = calc(state, today());
-    var rows = [
-      ["Услуга", r ? r.svc.name : "—"],
-      ["Колёса", r ? r.count + " " + wheelsWord(r.count) + ", " + r.dia.label + ", " + (state.disk === "cast" ? "литой" : "штампованный") + " диск" : "—"],
-      ["Когда", humanDate(state.date) + (state.time ? ", " + state.time : "")],
-      ["Имя", state.name || "не указано"],
-      ["Телефон", state.phone]
-    ];
-    if (state.car) rows.push(["Машина", state.car]);
-    if (state.comment) rows.push(["Комментарий", state.comment]);
-    var dl = document.getElementById("summary");
-    dl.innerHTML = "";
-    rows.forEach(function (row) {
-      var d = document.createElement("div"), dt = document.createElement("dt"), dd = document.createElement("dd");
-      dt.textContent = row[0]; dd.textContent = row[1]; d.appendChild(dt); d.appendChild(dd); dl.appendChild(d);
-    });
-    document.getElementById("confirmSum").textContent = r ? (r.noPrice ? PRICE_STUB : "≈ " + rub(r.total)) : "—";
-  }
-  document.getElementById("sendBtn").addEventListener("click", function () {
-    // Макет: заявка никуда не отправляется, запросов на сервер нет.
-    submitted = true;
-    document.getElementById("successText").textContent =
-      "Ждём вас " + humanDate(state.date) + (state.time ? " в " + state.time : "") + ". Мастер перезвонит, чтобы подтвердить время.";
-    history = [];
-    show("success");
-  });
-
-  /* ---------- Копирование телефона ---------- */
-  document.getElementById("copyPhone").addEventListener("click", function () {
-    var text = document.getElementById("phoneText").textContent;
-    var note = document.getElementById("copyNote");
-    function fallback() {
-      var range = document.createRange(); range.selectNodeContents(document.getElementById("phoneText"));
-      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
-      note.textContent = "Номер выделен — скопируйте его.";
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(function () { note.textContent = "Скопировано."; }, fallback);
-    } else fallback();
-  });
-
-  /* ---------- Старт ---------- */
-  var start = (location.hash || "").replace("#", "");
-  if (SCREENS.indexOf(start) >= 0 && start !== "home") routeTo(start); else show("home");
 })();
 </script>
 </body>
