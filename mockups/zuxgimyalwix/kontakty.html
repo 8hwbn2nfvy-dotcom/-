@@ -6,27 +6,32 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Контакты и запись — Стоматология доктора Котова</title>
 <meta name="description" content="Контакты клиники Стоматология доктора Котова и запись на приём.">
+<link rel="preload" href="fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 <script src="site.js" defer></script>
 </head>
-<body>
+<body class="has-dock">
+<div class="progress" aria-hidden="true"></div>
 <div class="mockbar">Макет для Стоматология доктора Котова — не для публикации</div>
 <header class="site-header">
   <div class="wrap bar">
     <a class="logo" href="index.html"><b>Стоматология доктора Котова</b><span>частная стоматология</span></a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Меню</button>
     <nav class="nav" id="nav" aria-label="Разделы сайта"><a href="index.html">Главная</a><a href="uslugi.html">Услуги</a><a href="kontakty.html" aria-current="page">Контакты и запись</a></nav>
+    <div class="hdr-actions"><span class="btn btn-main is-ph"><span>Позвонить</span><span class="ph">[вставить телефон]</span></span><span class="btn btn-line is-ph"><span>WhatsApp</span><span class="ph">[вставить]</span></span></div>
   </div>
-  <div class="wrap quick"><span class="btn btn-main is-ph"><span>Позвонить</span><span class="ph">[вставить телефон]</span></span><span class="btn btn-line is-ph"><span>WhatsApp</span><span class="ph">[вставить]</span></span></div>
 </header>
+<div class="dock" aria-label="Связаться"><span class="btn btn-main is-ph"><span>Позвонить</span><span class="ph">[вставить телефон]</span></span><span class="btn btn-line is-ph"><span>WhatsApp</span><span class="ph">[вставить]</span></span></div>
 <main>
 <section class="page-head">
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="wrap"><p class="crumbs"><a href="index.html">Главная</a> / Контакты и запись</p><h1>Контакты и запись</h1></div>
 </section>
 <section class="zapis" id="zapis">
   <div class="wrap narrow">
-    <h2 class="reveal">Запись на приём</h2>
-    <form class="form reveal" id="zapis-form" action="prinyato.html" method="get">
+    <div class="panel reveal">
+    <h2>Запись на приём</h2>
+    <form class="form" id="zapis-form" action="prinyato.html" method="get">
       <div class="field">
         <label for="f-need">Что беспокоит или какая услуга нужна</label>
         <textarea id="f-need" rows="3" required placeholder="Коротко, своими словами"></textarea>
@@ -49,22 +54,25 @@
       </div>
       <button class="btn btn-main" type="submit">Отправить заявку</button>
     </form>
+    </div>
   </div>
 </section>
 <section class="contacts">
   <div class="wrap">
-    <h2 class="reveal">Связаться</h2>
-    <dl class="facts reveal">
-      <dt>Телефон</dt><dd><span class="ph">[вставить телефон]</span></dd>
-      <dt>WhatsApp</dt><dd><span class="ph">[вставить]</span></dd>
-      <dt>Часы</dt><dd><span class="ph">[вставить часы]</span></dd>
-    </dl>
-    <div class="actions reveal"><span class="btn btn-main is-ph"><span>Позвонить</span><span class="ph">[вставить телефон]</span></span><span class="btn btn-line is-ph"><span>WhatsApp</span><span class="ph">[вставить]</span></span></div>
+    <div class="panel reveal">
+      <h2>Связаться</h2>
+      <dl class="facts">
+        <dt>Телефон</dt><dd><span class="ph">[вставить телефон]</span></dd>
+        <dt>WhatsApp</dt><dd><span class="ph">[вставить]</span></dd>
+        <dt>Часы</dt><dd><span class="ph">[вставить часы]</span></dd>
+      </dl>
+      <div class="actions"><span class="btn btn-main is-ph"><span>Позвонить</span><span class="ph">[вставить телефон]</span></span><span class="btn btn-line is-ph"><span>WhatsApp</span><span class="ph">[вставить]</span></span></div>
+    </div>
   </div>
 </section>
 <section class="find" id="kak-nayti">
   <div class="wrap grid two">
-    <div class="reveal">
+    <div class="panel reveal">
       <h2>Как найти</h2>
       <p>Ленинский район, улица Матросова, 66а, первый этаж.</p>
       <dl class="facts">
@@ -80,7 +88,7 @@
 </main>
 <footer class="site-footer">
   <div class="wrap foot">
-    <div><b>Стоматология доктора Котова</b><p>Частная стоматология</p><p>ул. Матросова, 66а, 394052, Воронеж, Ленинский район, 1 этаж</p></div>
+    <div><b>Стоматология доктора Котова</b><p class="muted">Частная стоматология</p><p>ул. Матросова, 66а, 394052, Воронеж, Ленинский район, 1 этаж</p></div>
     <nav aria-label="Меню в подвале"><ul><li><a href="index.html">Главная</a></li><li><a href="uslugi.html">Услуги</a></li><li><a href="kontakty.html">Контакты и запись</a></li></ul></nav>
     <div><p>Часы: <span class="ph">[вставить часы]</span></p><p>Телефон: <span class="ph">[вставить телефон]</span></p><p><a href="https://2gis.ru/voronezh/search/%D0%A1%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F%20%D0%B4%D0%BE%D0%BA%D1%82%D0%BE%D1%80%D0%B0%20%D0%9A%D0%BE%D1%82%D0%BE%D0%B2%D0%B0%2C%20%D1%83%D0%BB.%20%D0%9C%D0%B0%D1%82%D1%80%D0%BE%D1%81%D0%BE%D0%B2%D0%B0%2C%2066%D0%B0%2C%20394052%2C%20%D0%92%D0%BE%D1%80%D0%BE%D0%BD%D0%B5%D0%B6%2C%20%D0%9B%D0%B5%D0%BD%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%20%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%2C%201%20%D1%8D%D1%82%D0%B0%D0%B6" rel="noopener">Открыть в 2ГИС</a></p></div>
   </div>
