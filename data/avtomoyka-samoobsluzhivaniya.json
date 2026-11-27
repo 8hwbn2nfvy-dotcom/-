@@ -1,0 +1,19 @@
+{
+  "name": "Автомойка самообслуживания",
+  "type": "Автомойка",
+  "city": "Краснодар",
+  "address": "ул. Тополиная, 6, 350072, Прикубанский округ, 1 этаж",
+  "rating": 4.2,
+  "rating_count": 30,
+  "phone": "+7 989 233-71-03",
+  "phone_source": "собственный сайт mojka-samoobsluzhivanija-topolinaja-ulitsa.clients.site, проверено 27.11.2026",
+  "hours": "[вставить часы]",
+  "messengers": { "whatsapp": "[вставить]" },
+  "services": [],
+  "features": ["Оплата картой", "Нанесение защитного воска", "Чернение резины", "Wi-fi", "Парковка для людей с инвалидностью"],
+  "features_source": "собственный сайт, раздел «О нас», проверено 27.11.2026",
+  "reviews": [],
+  "about": [],
+  "price_source": "2ГИС, скриншот 27.11.2026",
+  "own_site": "https://mojka-samoobsluzhivanija-topolinaja-ulitsa.clients.site/"
+}
