@@ -1,0 +1,124 @@
+/* Общая раскладка. Цвета, шрифты и углы задаёт тема мойки в конце файла. */
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.55 var(--font-text); overflow-x: hidden; }
+body.lock { overflow: hidden; }
+h1, h2, h3 { font-family: var(--font-head); line-height: 1.12; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2.4rem, 10vw, 4.4rem); font-weight: var(--w-head); letter-spacing: var(--ls-head); }
+h2 { font-size: clamp(1.5rem, 5vw, 2.1rem); font-weight: var(--w-head); }
+p { margin: 0; }
+a { color: inherit; }
+button, input, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* Шапка и меню */
+.top { position: sticky; top: 0; z-index: 40; background: var(--head); color: var(--head-fg); }
+.bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; min-height: 64px; padding-block: 8px; }
+.brand { font-family: var(--font-head); font-weight: var(--w-head); font-size: 1.35rem; text-decoration: none; margin-right: auto; display: inline-flex; align-items: center; min-height: 48px; }
+.menu-btn, .menu-close { display: none; }
+.nav-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.nav a:not(.btn) { display: flex; align-items: center; min-height: 48px; padding: 0 12px; border-radius: var(--r-ctl); text-decoration: none; font-weight: 700; }
+.nav a:not(.btn):hover { background: color-mix(in srgb, currentColor 12%, transparent); }
+.nav a[aria-current="page"] { box-shadow: inset 0 -3px 0 var(--accent); }
+@media (max-width: 1023.98px) {
+  .js .menu-btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: var(--r-ctl); border: 2px solid color-mix(in srgb, var(--head-fg) 40%, transparent); background: transparent; color: var(--head-fg); font-weight: 800; cursor: pointer; }
+  .js .nav { position: fixed; inset: 0; z-index: 60; overflow: hidden; background: rgba(0, 0, 0, 0.5); visibility: hidden; opacity: 0; }
+  .js .nav.open { visibility: visible; opacity: 1; }
+  .js .nav-inner { position: absolute; top: 0; right: 0; bottom: 0; width: min(340px, 88vw); flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 16px; overflow-y: auto;
+    background: var(--surface); color: var(--fg); padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 24px 16px; transform: translateX(100%); }
+  .js .nav.open .nav-inner { transform: none; }
+  .js .menu-close { display: inline-flex; align-self: flex-end; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: var(--r-ctl); border: 2px solid var(--line); background: transparent; font-size: 1.6rem; line-height: 1; cursor: pointer; }
+  .js .nav ul { flex-direction: column; flex-wrap: nowrap; }
+  .js .nav a:not(.btn) { font-size: 1.1rem; }
+  .js .nav a[aria-current="page"] { box-shadow: inset 4px 0 0 var(--accent); background: color-mix(in srgb, var(--accent) 16%, transparent); }
+}
+
+/* Кнопки */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 22px; border-radius: var(--r-ctl); border: 2px solid transparent; font-weight: 800; cursor: pointer; text-decoration: none; text-align: center; }
+.btn-primary { background: var(--accent); color: var(--accent-fg); }
+.btn-primary:hover { filter: brightness(1.07); }
+.btn-ghost { border-color: var(--line); background: transparent; }
+.btn-ghost:hover { border-color: currentColor; }
+.btn-big { min-height: 68px; font-size: 1.25rem; padding: 0 36px; width: 100%; max-width: 440px; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn-row .btn { flex: 1 1 200px; }
+.on-dark .btn-ghost { color: var(--head-fg); border-color: color-mix(in srgb, var(--head-fg) 45%, transparent); }
+
+/* Цветной блок вместо фото */
+.glow { border-radius: var(--r); background: var(--glow); min-height: 180px; }
+
+/* Блоки */
+.hero { position: relative; overflow: hidden; background: var(--head); color: var(--head-fg); }
+.hero .wrap { position: relative; padding-block: 44px 40px; display: grid; gap: 18px; }
+.eyebrow { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); }
+.lead { font-size: 1.12rem; max-width: 52ch; color: color-mix(in srgb, currentColor 82%, transparent); }
+.page-head { background: var(--head); color: var(--head-fg); }
+.page-head .wrap { padding-block: 34px 30px; display: grid; gap: 10px; }
+section { padding-block: 40px; scroll-margin-top: 72px; }
+.sec-title { margin-bottom: 14px; display: grid; gap: 6px; }
+.muted { color: var(--muted); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.big-num { font-family: var(--font-head); font-size: 3.6rem; font-weight: var(--w-head); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.addr { font-size: 1.2rem; font-weight: 700; overflow-wrap: anywhere; }
+.facts { margin: 0; display: grid; }
+.facts > div { display: grid; grid-template-columns: minmax(0, 11em) minmax(0, 1fr); gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; font-weight: 700; overflow-wrap: anywhere; }
+@media (max-width: 559.98px) { .facts > div { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+.split { display: grid; gap: 20px; }
+.cta { text-align: center; display: grid; gap: 16px; justify-items: center; }
+
+/* Форма */
+.form { display: grid; gap: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; max-width: 580px; }
+.field { display: grid; gap: 6px; }
+.field label { font-weight: 700; }
+.hint { font-size: 0.9rem; color: var(--muted); }
+.form input, .form textarea { width: 100%; min-height: 52px; border: 2px solid var(--line); border-radius: var(--r-field); background: var(--bg); padding: 12px; font-size: 1rem; }
+.form textarea { min-height: 110px; resize: vertical; }
+.form input:focus, .form textarea:focus { border-color: var(--accent); outline: none; }
+
+/* Подвал */
+.foot { background: var(--surface); border-top: 1px solid var(--line); margin-top: 24px; }
+.foot .wrap { padding-block: 28px; display: grid; gap: 14px; }
+.foot ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.foot ul a { display: inline-flex; align-items: center; min-height: 48px; padding: 0 8px; font-weight: 700; }
+.foot ul a:not([aria-current]) { text-decoration: none; }
+.foot a[aria-current="page"] { text-decoration-color: var(--accent); text-decoration-thickness: 3px; text-underline-offset: 6px; }
+
+@media (min-width: 760px) {
+  .hero .wrap { padding-block: 80px 64px; }
+  .split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; align-items: stretch; }
+  .glow { min-height: 260px; }
+}
+
+/* Движение */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+  .rv { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .rv.in { opacity: 1; transform: none; }
+  .js .nav { transition: opacity 0.25s ease, visibility 0.25s; }
+  .js .nav-inner { transition: transform 0.3s ease; }
+  .btn { transition: background-color 0.2s, border-color 0.2s, filter 0.2s; }
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.3s; }
+}
+
+/* Тема: Аквапарк. Глубокий синий и бирюза, крупные скругления, плотный рубленый шрифт. */
+:root { --font-text: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; --font-head: "SF Pro Rounded", ui-rounded, "Nunito", system-ui, sans-serif; --w-head: 900; --ls-head: -0.02em;
+  --bg: #eef6fb; --surface: #ffffff; --fg: #0d2238; --muted: #4c6178; --line: #cfe1ee; --accent: #19c3e6; --accent-fg: #03222c; --head: #0a2b5c; --head-fg: #eef8ff;
+  --glow: linear-gradient(160deg, #6ee7f5 0%, #19c3e6 30%, #2a6fdb 65%, #4b2fb5 100%); --r: 24px; --r-ctl: 999px; --r-field: 16px; color-scheme: light }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #07131f; --surface: #0e1f31; --fg: #e3f0fa; --muted: #93abc2; --line: #1d3550; --head: #051226; --head-fg: #e3f0fa; --accent: #36d3f0; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #07131f; --surface: #0e1f31; --fg: #e3f0fa; --muted: #93abc2; --line: #1d3550; --head: #051226; --head-fg: #e3f0fa; --accent: #36d3f0; color-scheme: dark }
+.hero .wrap { text-align: center; justify-items: center; }
+.hero .lead { margin-inline: auto; }
+.bubble { position: absolute; border-radius: 50%; pointer-events: none; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.5), rgba(25,195,230,0.12) 60%, transparent 70%); }
+.bubble.b1 { width: 220px; height: 220px; left: -70px; top: 30px; }
+.bubble.b2 { width: 140px; height: 140px; right: -30px; bottom: 20px; }
+.rating-pill { display: inline-flex; align-items: center; gap: 14px; padding: 10px 22px 10px 12px; border-radius: 999px; background: color-mix(in srgb, var(--head-fg) 10%, transparent); }
+.rating-pill .big-num { font-size: 2.6rem; }
+.rating-pill b { display: block; }
+.glow { min-height: 220px; }
+@media (min-width: 760px) { .glow { min-height: 320px; } }

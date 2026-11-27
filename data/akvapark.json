@@ -1,0 +1,19 @@
+{
+  "name": "Аквапарк",
+  "city": "Саратов",
+  "type": "Автомойка",
+  "address": "ул. им. Шехурдина А.П., 15, Саратов, 1 этаж",
+  "hours": null,
+  "transit": "пл. Ленина, 9 мин пешком",
+  "rating": {
+    "value": 4.6,
+    "count": 103,
+    "show": true,
+    "verified_badge": false
+  },
+  "phone": null,
+  "services": [],
+  "prices": [],
+  "reviews": [],
+  "source": "скрин карточки 2ГИС, 27.11.2026"
+}
